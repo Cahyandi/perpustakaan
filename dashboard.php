@@ -44,7 +44,7 @@ if (!isset($_SESSION['username'])) {
                 </li>
                 <li class="nav-item d-flex align-items-center pt-2">
                     <label><i class="fa-solid fa-book"></i></label>
-                    <a class="nav-link" href="pages/data_buku.php">Data Buku</a>
+                    <a class="nav-link" href="data_buku.php">Data Buku</a>
                 </li>
                 <li class="nav-item d-flex align-items-center pt-2">
                     <label><i class="fa-solid fa-plus"></i></label>

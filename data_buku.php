@@ -67,31 +67,8 @@ if (!isset($_SESSION['username'])) {
             <!-- Content Dashboard -->
             <div class="container pt-3">
                 <h1 class="mb-5">Data Buku</h1>
-                <div class="row d-flex align-item-center justify-content-center gap-2" style="color: #fff;">
-                    <div class="col-xl-3 col-md-6 mb-4 ">
-                        <div class="title d-flex flex-column bg-info rounded">
-                            <span class="number fs-1 ps-3">0</span>
-                            <span class="data fs-4 ps-3 pb-3">Data Anggota</span>
-                            <div class="more d-flex justify-content-center align-item-center gap-2 "> More info <i class="fa-solid fa-arrow-right"></i></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 mb-4 ">
-                        <div class="title d-flex flex-column bg-primary rounded">
-                            <span class="number fs-1 ps-3">0</span>
-                            <span class="data fs-4 ps-3 pb-3">Data Buku</span>
-                            <div class="more d-flex justify-content-center align-item-center gap-2"> More info <i class="fa-solid fa-arrow-right"></i></div>
-                        </div>
-                        
-                    </div>
-                    <div class="col-xl-3 col-md-6 mb-4 ">
-                        <div class="title d-flex flex-column bg-success rounded">
-                            <span class="number fs-1 ps-3">0</span>
-                            <span class="data fs-4 ps-3 pb-3">Data Peminjam</span>
-                            <div class="more d-flex justify-content-center align-item-center gap-2 ">
-                            <span>More info</span> <i class="fa-solid fa-arrow-right"></i></div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Masukkan fe data buku dibawah ini -->
+                
             </div>
         </div>
     </div>
