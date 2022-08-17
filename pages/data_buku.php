@@ -11,7 +11,6 @@ if (!isset($_SESSION['username'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +66,7 @@ if (!isset($_SESSION['username'])) {
 
             <!-- Content Dashboard -->
             <div class="container pt-3">
-                <h1 class="mb-5">Dashboard</h1>
+                <h1 class="mb-5">Data Buku</h1>
                 <div class="row d-flex align-item-center justify-content-center gap-2" style="color: #fff;">
                     <div class="col-xl-3 col-md-6 mb-4 ">
                         <div class="title d-flex flex-column bg-info rounded">
@@ -99,5 +98,4 @@ if (!isset($_SESSION['username'])) {
     <!-- Boostrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-
 </html>

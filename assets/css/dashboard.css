@@ -5,17 +5,26 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 body{
     min-height: 100vh;
     background-color: #fff;
+}
+.logout{
+    padding-top: 20em;
+}
+.logout .btn{
+    color: #fff;
+    font-size: 16px;
+
 }
 .navbar{
     width: 300px;
     height: 100vh;
     /* margin-left: -320px; */
     position: fixed;
-    background-color: rgb(56, 145, 145);
+    background-color: rgb(58, 126, 126);
 }
 
 .navbar .navbar-nav .nav-item{
@@ -49,8 +58,20 @@ body{
 
 .wrapper .content-wrapper .top-bar{
     background-color: #fff;
-    gap: 50em;
+    gap: 70em;
 }
+
+.content-wrapper .container .row{
+    color: #fff;
+}
+
+.more{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 
 label{
     height: 25px;
