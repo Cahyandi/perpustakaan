@@ -1,5 +1,5 @@
 <?php
-
+include '../db/koneksi.php';
 session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -11,12 +11,13 @@ if (!isset($_SESSION['username'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="../assets/css/dashboard.css?v=<?php echo time(); ?>">
     <!-- Boostrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Icon -->
@@ -43,15 +44,15 @@ if (!isset($_SESSION['username'])) {
                 </li>
                 <li class="nav-item d-flex align-items-center pt-2">
                     <label><i class="fa-solid fa-book"></i></label>
-                    <a class="nav-link" href="pages/data_buku.php">Data Buku</a>
+                    <a class="nav-link" href="data_buku.php">Data Buku</a>
                 </li>
                 <li class="nav-item d-flex align-items-center pt-2">
                     <label><i class="fa-solid fa-plus"></i></label>
                     <a class="nav-link" href="">Transaksi</a>
                 </li>
             </ul>
-            <div class="logout ">
-                <a href="logout.php" class="btn d-flex flex-column">
+            <div class="logout">
+                <a href="../logout.php" class="btn d-flex flex-column">
             <i class="fa-solid fa-right-from-bracket"></i>Log out</a>
         </div>
         </nav>
@@ -66,13 +67,42 @@ if (!isset($_SESSION['username'])) {
 
             <!-- Content Dashboard -->
             <div class="container pt-3">
-                <h1 class="mb-5">Data Buku</h1>
-                <!-- Masukkan fe data buku dibawah ini -->
-                
+                <h1 class="mb-5">Dashboard</h1>
+                <div class="row d-flex align-item-center justify-content-center gap-2" style="color: #fff;">
+                    <div class="col-xl-3 col-md-6 mb-4 ">
+                        <div class="title d-flex flex-column bg-info rounded">
+                            <span class="number fs-1 ps-3">0</span>
+                            <span class="data fs-4 ps-3 pb-3">Data Anggota</span>
+                            <div class="more d-flex justify-content-center align-item-center gap-2 "> More info <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4 ">
+                        <div class="title d-flex flex-column bg-primary rounded">
+                            
+                            <?php
+                                $buku = mysqli_query($conn, "SELECT * FROM tb_buku");
+                                $result = mysqli_num_rows($buku);
+                            ?>
+                            <span class="number fs-1 ps-3"><?= $result;?></span>
+                            <span class="data fs-4 ps-3 pb-3">Data Buku</span>
+                            <div class="more d-flex justify-content-center align-item-center gap-2"> More info <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4 ">
+                        <div class="title d-flex flex-column bg-success rounded">
+                            <span class="number fs-1 ps-3">0</span>
+                            <span class="data fs-4 ps-3 pb-3">Data Peminjam</span>
+                            <div class="more d-flex justify-content-center align-item-center gap-2 ">
+                            <span>More info</span> <i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- Boostrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>
