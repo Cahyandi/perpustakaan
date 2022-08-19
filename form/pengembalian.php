@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Data buku</title>
+    <title>Pengembalian</title>
 </head>
 
 <body>
@@ -57,8 +57,8 @@ if (!isset($_SESSION['username'])) {
                         </span>
                     </div>
                     <div class="dropdown-content " >
-                        <a class="nav-link" href="peminjaman.php">Peminjaman</a>
-                        <a class="nav-link" href="pengembalian.php">Pengembalian</a>
+                        <a class="nav-link" href="Peminjaman.php">Peminjaman</a>
+                        <a class="nav-link" href="Pengembalian.php">Pengembalian</a>
                     </div>
                 </li>
             </ul>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['username'])) {
 
             <!-- Content Dashboard -->
             <div class="container pt-3">
-                <h1 class="mb-5">Data Buku</h1>
+                <h1 class="mb-5">Pengembalian</h1>
                 <!-- Masukkan fe data buku dibawah ini -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">TAMBAH DATA BUKU <i class="fa-solid fa-plus"></i></button>
                 <!-- Modal Box -->
@@ -86,7 +86,7 @@ if (!isset($_SESSION['username'])) {
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data Buku</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data Pengembalian</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">

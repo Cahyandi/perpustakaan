@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Data buku</title>
+    <title>Data anggota</title>
 </head>
 
 <body>
@@ -78,48 +78,44 @@ if (!isset($_SESSION['username'])) {
 
             <!-- Content Dashboard -->
             <div class="container pt-3">
-                <h1 class="mb-5">Data Buku</h1>
+                <h1 class="mb-5">Data Anggota</h1>
                 <!-- Masukkan fe data buku dibawah ini -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">TAMBAH DATA BUKU <i class="fa-solid fa-plus"></i></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">TAMBAH DATA ANGGOTA <i class="fa-solid fa-plus"></i></button>
                 <!-- Modal Box -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data Buku</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Form Tambah Data Anggota</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
 
                                 <!-- Form input data buku -->
-                                <form class="row g-3" action="../proses/insert_databuku.php" method="POST">
+                                <form class="row g-3" action="../proses/insert_data_anggota.php" method="POST">
                                     <div class="col-md-6">
-                                        <label for="" class="form-label label-form">Judul Buku</label>
-                                        <input type="text" name="judul_buku" class="form-control" placeholder="Masukkan judul buku" required>
+                                        <label for="" class="form-label label-form">Nim</label>
+                                        <input type="number" name="nim" class="form-control" placeholder="Masukkan nim" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="" class="form-label label-form">Jenis Buku</label>
-                                        <select class="form-select" name="jenis_buku">
+                                        <label for="" class="form-label label-form">Nama</label>
+                                        <input type="text" name="nama" class="form-control" placeholder="Masukkan nama" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="" class="form-label label-form">Jenis Kelamin</label>
+                                        <select name="jenis_kelamin" class="form-control">
                                             <option selected>Pilih</option>
-                                            <option>Teknik</option>
-                                            <option>Komputer</option>
-                                            <option>Novel</option>
-                                            <option>Komik</option>
-                                            <option>Dongeng</option>
-                                            <option>Majalah</option>
+                                            <option>Laki-laki</option>
+                                            <option>Perempuan</option>
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <label for="" class="form-label label-form">Pengarang</label>
-                                        <input type="text" name="pengarang" class="form-control" placeholder="Masukkan pengarang" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="" class="form-label label-form">Penerbit</label>
-                                        <input type="text" name="penerbit" class="form-control" placeholder="Masukkan penerbit" required>
+                                        <label for="" class="form-label label-form">Alamat</label>
+                                        <textarea name="alamat" class="form-control" placeholder="Masukkan alamat"></textarea>
                                     </div>
                                     <div class="col-md-6 d-flex flex-column">
-                                        <label for="" class="form-label label-form">Tahun Terbit</label>
-                                        <input type="number" name="thn" maxlength="4" class="form-control" placeholder="Masukkan tahun terbit" required>
+                                        <label for="" class="form-label label-form">No Handphone</label>
+                                        <input type="number" name="no_hp" class="form-control" maxlength="12" placeholder="Masukkan No Handphone" required>
                                     </div>
                                     <div class="col-12 ">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -137,34 +133,34 @@ if (!isset($_SESSION['username'])) {
                     <thead style="background-color: rgb(56, 145, 145);">
                         <tr>
                             <th scope="col" class="text-white">No</th>
-                            <th scope="col" class="text-white">Judul Buku</th>
-                            <th scope="col" class="text-white">Jenis Buku</th>
-                            <th scope="col" class="text-white">Pengarang</th>
-                            <th scope="col" class="text-white">penerbit</th>
-                            <th scope="col" class="text-white">Tahun Terbit</th>
+                            <th scope="col" class="text-white">Nim</th>
+                            <th scope="col" class="text-white">Nama</th>
+                            <th scope="col" class="text-white">Jenis Kelamin</th>
+                            <th scope="col" class="text-white">Alamat</th>
+                            <th scope="col" class="text-white">No Handphone</th>
                             <th scope="col" class="text-white">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM tb_buku";
+                        $sql = "SELECT * FROM tb_anggota";
                         $query = mysqli_query($conn, $sql);
 
                         while ($nama_buku = mysqli_fetch_array($query)) {
                             echo "<tr>";
 
                             echo "<td>" . $nama_buku['id'] . "</td>";
-                            echo "<td>" . $nama_buku['judul_buku'] . "</td>";
-                            echo "<td>" . $nama_buku['jenis_buku'] . "</td>";
-                            echo "<td>" . $nama_buku['pengarang'] . "</td>";
-                            echo "<td>" . $nama_buku['penerbit'] . "</td>";
-                            echo "<td>" . $nama_buku['tahun_terbit'] . "</td>";
+                            echo "<td>" . $nama_buku['nim'] . "</td>";
+                            echo "<td>" . $nama_buku['nama'] . "</td>";
+                            echo "<td>" . $nama_buku['jenis_kelamin'] . "</td>";
+                            echo "<td>" . $nama_buku['alamat'] . "</td>";
+                            echo "<td>" . $nama_buku['no_hp'] . "</td>";
 
                             echo "<td>";
 
-                            echo "<a href='form_edit_buku.php?id=" . $nama_buku['id'] . "'><button type='button' class='btn btn-warning'>
+                            echo "<a href='form_edit_anggota.php?id=" . $nama_buku['id'] . "'><button type='button' class='btn btn-warning'>
                             <i class='fa-solid fa-pen-to-square'></i></button></a> | ";
-                            echo "<a href='../proses/delete_data_buku.php?id=" . $nama_buku['id'] . "'><button type='button' class='btn btn-danger'>
+                            echo "<a href='../proses/delete_data_anggota.php?id=" . $nama_buku['id'] . "'><button type='button' class='btn btn-danger'>
                             <i class='fa-solid fa-trash-can'></i></button></a>";
                             echo "</td>";
 

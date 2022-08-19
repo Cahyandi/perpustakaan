@@ -57,8 +57,8 @@ if (!isset($_SESSION['username'])) {
                         </span>
                     </div>
                     <div class="dropdown-content " >
-                        <a class="nav-link" href="peminjaman.php">Peminjaman</a>
-                        <a class="nav-link" href="pengembalian.php">Pengembalian</a>
+                        <a class="nav-link" href="Peminjaman.php">Peminjaman</a>
+                        <a class="nav-link" href="Pengembalian.php">Pengembalian</a>
                     </div>
                 </li>
             </ul>

@@ -3,14 +3,14 @@ include("../db/koneksi.php");
 
 // kalau tidak ada id di query string
 if (!isset($_GET['id'])) {
-    header('Location: data_buku.php');
+    header('Location: data_anggota.php');
 }
 
 //ambil id dari query string
 $id = $_GET['id'];
 
 // buat query untuk ambil data dari database
-$sql = "SELECT * FROM tb_buku WHERE id=$id";
+$sql = "SELECT * FROM tb_anggota WHERE id=$id";
 $query = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($query);
 
@@ -42,16 +42,27 @@ if (mysqli_num_rows($query) < 1) {
 
             <!-- Form Edit  -->
 
-            <form class="row g-3" action="../proses/update_databuku.php" method="POST">
-                <h3>Form Edit Data Buku</h3>
-                <input type="hidden" name="id" value="<?php echo $data['id'] ?>" />
+            <form class="row g-3" action="../proses/update_data_anggota.php" method="POST">
+                <h3>Form Edit Data Anggota</h3>
+                <input type="hidden" name="id" value="<?php echo $data['id']; ?>" />
                 <div class="col-md-6">
-                    <label for="" class="form-label label-form">Judul Buku</label>
-                    <input type="text" name="judul_buku" class="form-control" placeholder="Masukkan judul buku" value="<?php echo $data  ['judul_buku']; ?>"  required>
+                    <label for="" class="form-label label-form">nim</label>
+                    <input type="number" name="nim" class="form-control" placeholder="Masukkan nim" value="<?php echo $data['nim']; ?>" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="" class="form-label label-form">Jenis Buku</label>
-                    <select name="jenis_buku" id="jenis_buku" class="form-control">
+                    <label for="" class="form-label label-form">Nama</label>
+                    <input type="text" name="nama" class="form-control" placeholder="Masukkan nama" value="<?php echo $data['nama']; ?>" required>
+                </div>
+                <div class="col-12">
+                    <label for="" class="form-label label-form">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" class="form-control">
+                        <option selected>Pilih</option>
+                        <option value="Laki-Laki" <?php if($data['jenis_kelamin'] == 'Laki-Laki'){ echo 'selected'; } ?>>
+                        Laki-laki</option>
+                        <option value="Perempuan" <?php if($data['jenis_kelamin'] == 'Perempuan'){ echo 'selected'; } ?>>
+                        Perempuan</option>
+                    </select>
+                    <!-- <select name="jenis_buku" id="jenis_buku" class="form-control">
                 <option value="Teknik" <?php if($data['jenis_buku'] == 'Teknik'){ echo 'selected'; } ?>>
                 Teknik</option>
                 <option value="Komputer" <?php if($data['jenis_buku'] == 'Komputer'){ echo 'selected'; } ?>>
@@ -64,22 +75,19 @@ if (mysqli_num_rows($query) < 1) {
                 Dongeng</option>
                 <option value="Majalah" <?php if($data['jenis_buku'] == 'Majalah'){ echo 'selected'; } ?>>
                 Majalah</option>
-              </select>
+              </select> -->
+                
                 </div>
                 <div class="col-12">
-                    <label for="" class="form-label label-form">Pengarang</label>
-                    <input type="text" name="pengarang" class="form-control" placeholder="Masukkan pengarang" value="<?php echo $data  ['pengarang']; ?>" required>
-                </div>
-                <div class="col-12">
-                    <label for="" class="form-label label-form">Penerbit</label>
-                    <input type="text" name="penerbit" class="form-control" placeholder="Masukkan penerbit" value="<?php echo $data  ['penerbit']; ?>" required>
+                    <label for="" class="form-label label-form">Alamat</label>
+                    <textarea name="alamat" class="form-control" placeholder="Masukkan alamat"><?php echo $data['alamat'] ?></textarea>
                 </div>
                 <div class="col-md-6 d-flex flex-column">
-                <label for="" class="form-label label-form">Tahun Terbit</label>
-                <input type="number" name="thn" maxlength="4" style="width: 130px;" value="<?php echo $data  ['tahun_terbit']; ?>" required>
+                    <label for="" class="form-label label-form">No Handphone</label>
+                    <input type="number" name="no_hp" class="form-control" maxlength="12" placeholder="Masukkan No Handphone" value="<?php echo $data['no_hp']; ?>" required>
                 </div>
                 <div class="col-12 ">
-                    <a href="data_buku.php" style="text-decoration: none;">
+                    <a href="data_anggota.php" style="text-decoration: none;">
                         <button type="button" class="btn btn-secondary" >Cancel</button>
                     </a>
                     <button type="submit" class="btn btn-primary" name="edit">Update Data</button>

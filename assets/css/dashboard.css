@@ -13,7 +13,7 @@ body{
     background-color: #fff;
 }
 .logout{
-    padding-top: 20em;
+    padding-top: 15em;
 }
 .logout .btn{
     color: #fff;
@@ -74,7 +74,7 @@ body{
 }
 
 .label-form{
-    width: 100px;
+    width: 200px;
 }
 label{
     height: 25px;
